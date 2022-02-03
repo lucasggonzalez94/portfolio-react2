@@ -1,0 +1,86 @@
+@import "../../scss/base/variables";
+@import "../../scss/base/mixins";
+
+.navegacion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-135deg, rgba(red($rojo), green($rojo), blue($rojo), 80%), $azulFondo 60%);
+    clip-path: circle(1.5rem at calc(100% - 45px) 45px);
+    transition: all .3s ease-in-out;
+    z-index: 100;
+
+    a {
+        font-weight: $bold;
+        color: $blanco;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+        padding: .5rem;
+
+        &:after {
+            content: "";
+            width: 120%;
+            background: rgba($color: $blanco, $alpha: 0.5);
+            position: absolute;
+            border-radius: 50px;
+            transform: scaleY(0);
+            transition: 0.3s;
+            padding: 1.5rem;
+            z-index: -1;
+        }
+
+        &:hover:after {
+            transform: scaleY(1);
+        }
+
+        &:hover {
+            color: $azulOscuro;
+        }
+    }
+}
+
+#active:checked ~ .navegacion {
+    clip-path: circle(75%);
+}
+
+.header {
+
+    input {
+        display: none;
+    }
+
+    .btn_menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 3rem;
+        position: fixed;
+        right: 1.3rem;
+        top: 1.3rem;
+        z-index: 200;
+        text-align: center;
+        line-height: 2rem;
+        background: $rojo;
+        border-radius: 50%;
+        color: $azulFondo;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+}
+
+#active:checked ~ .btn_menu {
+    background: $blanco;
+}

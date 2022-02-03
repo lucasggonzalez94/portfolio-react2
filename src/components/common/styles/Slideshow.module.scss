@@ -1,0 +1,63 @@
+@import "../../../scss/base/variables";
+@import "../../../scss/base/mixins";
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .button {
+            @include icon-button($rojo);
+        }
+    }
+
+    .contenedorPrincipal {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 0 1rem;
+        box-sizing: border-box;
+        box-shadow: 0 0 15px $negro;
+    }
+    .contenedorSlideShow {
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        transition: 500ms ease-out all;
+        & > div {
+            border-right: .1rem solid #eee;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+    .dots {
+        display: flex;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        & > button {
+            box-shadow: 0 0 10px $negro;
+            background-color: $rojo;
+            border: none;
+            margin: 0 .3rem;
+            height: .9rem;
+            width: .9rem;
+            border-radius: 50%;
+            border: .1rem solid transparent;
+            cursor: pointer;
+
+            &.active {
+                outline: 2px solid #fff;
+            }
+        }
+    }
+}

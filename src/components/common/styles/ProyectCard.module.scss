@@ -1,0 +1,38 @@
+@import "../../../scss/base/variables";
+@import "../../../scss/base/mixins";
+
+.card {
+	background-color: $azulClaro;
+	border-right: 1px solid $azulOscuro;
+	overflow: hidden;
+	transition: 0.4s;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: center;
+	width: 25rem;
+	height: 28rem;
+
+	@include desktop {
+		width: 25rem;
+		height: 28rem;
+	}
+
+	.title {
+		margin: 1rem 0;
+		font-size: 1rem;
+	}
+
+	.description {
+		font-size: 1rem;
+		padding: 0 1rem 1rem 1rem;
+	}
+
+	.btn {
+		margin: 1rem;
+		font-size: 1rem;
+		@include button-scale($rojo, block);
+		padding: .5rem 1rem;
+	}
+}
